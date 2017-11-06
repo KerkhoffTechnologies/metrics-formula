@@ -1,0 +1,10 @@
+{% set grafana = salt['grains.filter_by']({
+    'Debian': {
+        'version': '4.5.2',
+        'default_route': '/dashboard/script/overview.js',
+        'index': 'grafana-dash',
+        'server_name': 'grafana.*'
+    },
+    'default': 'Debian',
+}, merge=salt['pillar.get']('grafana', {})) %}
+
